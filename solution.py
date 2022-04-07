@@ -127,7 +127,7 @@ def ping(host, timeout=1):
 
     vars = [str(round(min(time) * milli_convert, 6)), str(round(sum(time)/len(time) * milli_convert, 6)), str(round(max(time) * milli_convert, 6)), str(round(statistics.stdev(time) * milli_convert, 2))]
 
-    #print(vars)
+    print(vars)
     return vars
 
 if __name__ == '__main__':
