@@ -60,6 +60,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         # Fill in end
         timeLeft = timeLeft - howLongInSelect
         if timeLeft <= 0:
+            return "Request timed out."
 
 
 def sendOnePing(mySocket, destAddr, ID):
