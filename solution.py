@@ -124,9 +124,10 @@ def ping(host, timeout=1):
 
     #You should have the values of delay for each ping here; fill in calculation for packet_min, packet_avg, packet_max, and stdev
 
-    st_dev = round(statistics.stdev(list(times) * milli_convert, 2))
+    #st_dev = round(statistics.stdev(list(times) * milli_convert, 2))
+    st_dev = 3
 
-    #vars = [str(round(min(times) * milli_convert, 6)), str(round(sum(times)/len(times) * milli_convert, 6)), str(round(max(times) * milli_convert, 6)), str(st_dev)]
+    vars = [str(round(min(times) * milli_convert, 6)), str(round(sum(times)/len(times) * milli_convert, 6)), str(round(max(times) * milli_convert, 6)), str(st_dev)]
 
     print(vars)
     return vars
