@@ -119,7 +119,7 @@ def ping(host, timeout=1):
     times = [0.00] * 4
     milli_convert = 1000
     #print(timeout)
-    #print(host)
+    print(host)
     for i in range(0, 4):
         delay = doOnePing(dest, timeout)
         if delay == "Request timed out.":
@@ -141,7 +141,7 @@ def ping(host, timeout=1):
 
     vars = [str(round(packet_min, 6)), str(round(packet_avg, 6)), str(round(packet_max, 2)), str(round(statistics.stdev(list(times)) * 1000, 6))]
 
-    print(vars)
+    #print(vars)
     return vars
 
 if __name__ == '__main__':
