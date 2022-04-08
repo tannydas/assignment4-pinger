@@ -5,7 +5,7 @@ import struct
 import time
 import select
 import statistics
-import binascii
+# import binascii
 # Should use stdev
 
 ICMP_ECHO_REQUEST = 8
@@ -115,7 +115,7 @@ def ping(host, timeout=1):
     # Send ping requests to a server separated by approximately one second
     # Add something here to collect the delays of each ping in a list
     # so you can calculate vars after your ping
-    times = []
+    times = [0.00] * 4
     for i in range(0, 4):
         delay = doOnePing(dest, timeout)
         times[i] = delay
