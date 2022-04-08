@@ -5,7 +5,9 @@ import struct
 import time
 import select
 import statistics
-# import binascii
+import binascii
+
+
 # Should use stdev
 
 ICMP_ECHO_REQUEST = 8
@@ -104,7 +106,6 @@ def doOnePing(destAddr, timeout):
     mySocket.close()
     return delay
 
-
 def ping(host, timeout=1):
     # timeout=1 means: If one second goes by without a reply from the server,  	
     # the client assumes that either the client's ping or the server's pong is lost
@@ -116,15 +117,16 @@ def ping(host, timeout=1):
     # Add something here to collect the delays of each ping in a list
     # so you can calculate vars after your ping
     times = [0.00] * 4
+    milli_convert = 1000
     for i in range(0, 4):
         delay = doOnePing(dest, timeout)
         times[i] = delay
         #print(delay)
         time.sleep(1)  # one second
-    packet_min = min(times) * 1000
-    packet_max = max(times) * 1000
-    packet_avg = (sum(times) / len(times)) * 1000
-    sdev_var = round(statistics.stdev(list(times) * 1000, 2))
+    packet_min = min(times) * milli_convert
+    packet_max = max(times) * milli_convert
+    packet_avg = (sum(times) / len(times)) * milli_convert
+    sdev_var = round(statistics.stdev(list(times) * milli_convert, 2))
 
     # you should have the values of delay for each ping here; fill in
     # calculation for packet_min, packet_avg, packet_max, and stdev
