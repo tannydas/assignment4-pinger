@@ -118,8 +118,12 @@ def ping(host, timeout=1):
     # so you can calculate vars after your ping
     times = [0.00] * 4
     milli_convert = 1000
+    print(timeout)
+    print(host)
     for i in range(0, 4):
         delay = doOnePing(dest, timeout)
+        if delay == "Request timed out.":
+            delay = timeout
         times[i] = delay
         #print(delay)
         time.sleep(1)  # one second
@@ -132,6 +136,7 @@ def ping(host, timeout=1):
     # calculation for packet_min, packet_avg, packet_max, and stdev
     # vars = [str(round(packet_min, 8)), str(round(packet_avg, 8)), str(round_packet_max, 8)), str(round(stdev(stdev_var), 8))]
     # vars = [float(round(packet_min, 2)), float(round(packet_avg, 2)), float(round(packet_max, 2)), float(round(stdev_var, 2))]
+
     vars = [str(round(packet_min, 2)), str(round(packet_avg, 2)), str(round(packet_max, 2)), str(sdev_var)]
 
     print(vars)
