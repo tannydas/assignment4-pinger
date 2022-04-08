@@ -111,26 +111,19 @@ def ping(host, timeout=1):
     dest = gethostbyname(host)
     print("Pinging " + dest + " using Python:")
     print("")
-    
-    #Send ping requests to a server separated by approximately one second
-    #Add something here to collect the delays of each ping in a list so you can calculate vars after your ping
-    times = []
-    milli_convert = 1000
-    for i in range(0,4): #Four pings will be sent (loop runs for i=0, 1, 2, 3)
+
+    # Send ping requests to a server separated by approximately one second
+    # Add something here to collect the delays of each ping in a list
+    # so you can calculate vars after your ping
+    for i in range(0, 4):
         delay = doOnePing(dest, timeout)
-        #print(delay)
-        times.append(delay)
+        print(delay)
         time.sleep(1)  # one second
 
-    #You should have the values of delay for each ping here; fill in calculation for packet_min, packet_avg, packet_max, and stdev
+    # you should have the values of delay for each ping here; fill in
+    # calculation for packet_min, packet_avg, packet_max, and stdev
+    # vars = [str(round(packet_min, 8)), str(round(packet_avg, 8)), str(round_packet_max, 8)), str(round(stdev(stdev_var), 8))]
 
-    #st_dev = round(statistics.stdev(list(times) * milli_convert, 2))
-    st_dev = 3
-
-    #vars = [str(round(min(times) * milli_convert, 6)), str(round(sum(times)/len(times) * milli_convert, 6)), str(round(max(times) * milli_convert, 6)), str(st_dev)]
-
-
-    print(vars)
     return vars
 
 if __name__ == '__main__':
