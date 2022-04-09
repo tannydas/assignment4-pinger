@@ -55,7 +55,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         icmpHeader = recPacket[20:28]
         requestType, code, theChecksum, packetID, sequence = struct.unpack("bbHHh", icmpHeader)
 
-        if type == 0 and packetID == ID:
+        if packetID == ID:
             bytesInDouble = struct.calcsize("d")
             timeSent = struct.unpack("d", recPacket[28:28 + bytesInDouble])[0]
             return timeReceived - timeSent
@@ -126,7 +126,7 @@ def ping(host, timeout=1):
         if delay == "Request timed out.":
             delay = 0
         times[i] = delay
-        #print(delay).
+        #print(delay)
         time.sleep(1)  # one second
     packet_min = min(times) * milli_convert
     packet_max = max(times) * milli_convert
@@ -146,3 +146,4 @@ def ping(host, timeout=1):
 
 if __name__ == '__main__':
     ping("google.co.il")
+    #ping("yahoo.com")
