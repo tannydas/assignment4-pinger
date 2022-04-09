@@ -131,7 +131,7 @@ def ping(host, timeout=1):
     packet_min = min(times) * milli_convert
     packet_max = max(times) * milli_convert
     packet_avg = (sum(times) / len(times)) * milli_convert
-    #sdev_var = round(statistics.stdev(list(times) * milli_convert))
+    sdev_var = round(statistics.stdev(list(times) * milli_convert))
 
     #print(sdev_var)
 
@@ -140,8 +140,7 @@ def ping(host, timeout=1):
     # vars = [str(round(packet_min, 8)), str(round(packet_avg, 8)), str(round_packet_max, 8)), str(round(stdev(stdev_var), 8))]
     # vars = [float(round(packet_min, 2)), float(round(packet_avg, 2)), float(round(packet_max, 2)), float(round(stdev_var, 2))]
 
-    vars = [str(round(packet_min, 8)), str(round(packet_avg, 8)), str(round(packet_max, 8)), str(round(statistics.stdev(list(times)) * 1000, 8))]
-
+    vars = [str(round(packet_min, 8)), str(round(packet_avg, 8)), str(round(packet_max, 8)), str(sdev_var)]
     #print(vars)
     return vars
 
