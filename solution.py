@@ -119,7 +119,7 @@ def ping(host, timeout=1):
     times = [0.00] * 4
     milli_convert = 1000
     #print(timeout)
-    print(host)
+    #print(host)
     #print(dest)
     for i in range(0, 4):
         delay = doOnePing(dest, timeout)
@@ -141,7 +141,7 @@ def ping(host, timeout=1):
     # vars = [float(round(packet_min, 2)), float(round(packet_avg, 2)), float(round(packet_max, 2)), float(round(stdev_var, 2))]
 
     vars = [str(round(packet_min, 8)), str(round(packet_avg, 8)), str(round(packet_max, 8)), str(sdev_var)]
-    #print(vars)
+    print(vars)
     return vars
 
 if __name__ == '__main__':
